@@ -1,0 +1,207 @@
+/*
+ * Tailwind v4 entry: config lives here, with no tailwind.config.js or PostCSS plugin.
+ * Keep every @import in this top block. Remote fonts load via <link> in src/routes/__root.tsx.
+ */
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Rezaei Gold Gallery design system.
+ * Warm cream canvas, deep espresso "ink" surfaces, restrained antique gold accent.
+ */
+
+@theme inline {
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-latin: "Cormorant Garamond", "Times New Roman", serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-line: var(--ink-line);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-gold-deep: var(--gold-deep);
+  --color-sand: var(--sand);
+  --color-cream: var(--cream);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+
+  /* Canvas */
+  --background: oklch(0.971 0.007 80.7); /* #F8F5F0 */
+  --foreground: oklch(0.227 0.011 60.9); /* #201B17 */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.227 0.011 60.9);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.227 0.011 60.9);
+
+  /* Gold accent */
+  --primary: oklch(0.716 0.117 80.6); /* #C99B45 */
+  --primary-foreground: oklch(0.224 0.015 57.4);
+  --gold: oklch(0.716 0.117 80.6);
+  --gold-soft: oklch(0.836 0.1 84.1); /* #E8C47B */
+  --gold-deep: oklch(0.6 0.105 76);
+
+  /* Beige surfaces */
+  --secondary: oklch(0.918 0.022 74.1); /* #EDE2D4 */
+  --secondary-foreground: oklch(0.227 0.011 60.9);
+  --sand: oklch(0.918 0.022 74.1);
+  --cream: oklch(0.948 0.014 78.3);
+  --muted: oklch(0.948 0.014 78.3);
+  --muted-foreground: oklch(0.552 0.013 71.8); /* #77716A */
+  --accent: oklch(0.948 0.014 78.3);
+  --accent-foreground: oklch(0.227 0.011 60.9);
+
+  /* Espresso ink surfaces (top bar, mobile header, footer) */
+  --ink: oklch(0.224 0.015 57.4); /* #211A15 */
+  --ink-soft: oklch(0.27 0.017 57);
+  --ink-line: oklch(0.36 0.02 60);
+  --ink-foreground: oklch(0.948 0.014 78.3);
+  --ink-muted: oklch(0.72 0.018 75);
+
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.9 0.016 77);
+  --input: oklch(0.88 0.018 77);
+  --ring: oklch(0.716 0.117 80.6);
+
+  --gradient-hero: linear-gradient(
+    to left,
+    oklch(0.17 0.014 55) 0%,
+    oklch(0.19 0.015 55) 38%,
+    oklch(0.19 0.015 55 / 0.55) 56%,
+    oklch(0.19 0.015 55 / 0) 78%
+  );
+  --gradient-hero-mobile: linear-gradient(
+    to top,
+    oklch(0.17 0.014 55) 0%,
+    oklch(0.17 0.014 55 / 0.92) 34%,
+    oklch(0.17 0.014 55 / 0) 70%
+  );
+  --shadow-card: 0 1px 2px oklch(0.3 0.02 60 / 0.05), 0 8px 24px -12px oklch(0.3 0.02 60 / 0.14);
+
+  --chart-1: oklch(0.716 0.117 80.6);
+  --chart-2: oklch(0.6 0.105 76);
+  --chart-3: oklch(0.552 0.013 71.8);
+  --chart-4: oklch(0.836 0.1 84.1);
+  --chart-5: oklch(0.36 0.02 60);
+  --sidebar: oklch(0.224 0.015 57.4);
+  --sidebar-foreground: oklch(0.948 0.014 78.3);
+  --sidebar-primary: oklch(0.716 0.117 80.6);
+  --sidebar-primary-foreground: oklch(0.224 0.015 57.4);
+  --sidebar-accent: oklch(0.27 0.017 57);
+  --sidebar-accent-foreground: oklch(0.948 0.014 78.3);
+  --sidebar-border: oklch(0.36 0.02 60);
+  --sidebar-ring: oklch(0.716 0.117 80.6);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01";
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+  @media (width >= 768px) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 1280px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility font-latin {
+  font-family: var(--font-latin);
+  letter-spacing: 0.04em;
+}
+
+@utility bg-hero-fade {
+  background-image: var(--gradient-hero);
+}
+
+@utility bg-hero-fade-mobile {
+  background-image: var(--gradient-hero-mobile);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility num {
+  font-feature-settings: "tnum";
+  font-variant-numeric: tabular-nums;
+}

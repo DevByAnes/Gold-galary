@@ -12,7 +12,7 @@ export function ProductCarousel({ products, label }: { products: Product[]; labe
   const arrow =
     "absolute top-[38%] z-10 hidden size-10 -translate-y-1/2 place-items-center rounded-full border border-border bg-card text-foreground shadow-card transition-colors hover:border-gold hover:text-gold-deep md:grid";
   return (
-    <div className="relative" aria-roledescription="carousel" aria-label={label}>
+    <div className="relative min-w-0 overflow-hidden" aria-roledescription="carousel" aria-label={label}>
       <Swiper
         modules={[A11y, Keyboard]}
         onSwiper={(s) => (ref.current = s)}
@@ -25,7 +25,7 @@ export function ProductCarousel({ products, label }: { products: Product[]; labe
           1024: { slidesPerView: 3, spaceBetween: 20 },
           1280: { slidesPerView: 3, spaceBetween: 20 },
         }}
-        className="!overflow-visible md:!overflow-hidden"
+        className="!w-full !overflow-hidden"
       >
         {products.map((p) => (
           <SwiperSlide key={p.slug} className="!h-auto">

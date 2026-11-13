@@ -25,7 +25,7 @@ export function ProductGallery({ images, name }: { images: string[]; name: strin
   };
 
   return (
-    <div className="relative">
+    <div className="relative min-w-0 overflow-hidden">
       <button
         type="button"
         onClick={() => setOpen(true)}

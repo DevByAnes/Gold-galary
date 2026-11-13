@@ -1,5 +1,5 @@
-import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
-import { Info, RotateCcw, ShieldCheck, ShoppingBag, Store, Truck } from "lucide-react";
+import { createFileRoute, notFound, useNavigate } from "@tanstack/react-router";
+import { Info, RotateCcw, ShieldCheck, ShoppingBag, Truck } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { getCategory, getProduct, productsByCategory } from "@/data/catalog";
@@ -66,16 +66,16 @@ function ProductPage() {
 
   return <>
     <PageHeader title={product.name} showTitle={false} crumbs={[{ label: "محصولات", to: "/products" }, { label: category.title, categorySlug: category.slug }, { label: product.name }]} />
-    <main className="container-page py-5 md:py-7 lg:py-9">
-      <div className="grid gap-6 lg:grid-cols-[minmax(230px,1fr)_minmax(0,1.9fr)_minmax(230px,1fr)] lg:gap-7">
-        <aside className="order-1 lg:col-start-3 lg:row-start-1">
+    <main className="container-page min-w-0 py-5 md:py-7 lg:py-9">
+      <div className="grid min-w-0 gap-6 lg:grid-cols-[minmax(230px,1fr)_minmax(0,1.9fr)_minmax(230px,1fr)] lg:gap-7">
+        <aside className="order-1 min-w-0 lg:col-start-3 lg:row-start-1">
           <div className="mb-4 lg:hidden"><p className="text-xs text-muted-foreground">کد محصول: {product.code}</p><h1 className="mt-1 text-xl font-bold">{product.name}</h1></div>
           <div className="hidden lg:block"><ProductTabs product={product} /></div>
         </aside>
 
-        <section className="order-2 lg:col-start-2 lg:row-start-1" aria-label="تصاویر محصول"><ProductGallery images={product.images} name={product.name} /></section>
+        <section className="order-2 min-w-0 lg:col-start-2 lg:row-start-1" aria-label="تصاویر محصول"><ProductGallery images={product.images} name={product.name} /></section>
 
-        <aside className="order-3 lg:col-start-1 lg:row-span-2 lg:row-start-1">
+        <aside className="order-3 min-w-0 lg:col-start-1 lg:row-span-2 lg:row-start-1">
           <h1 className="hidden text-[20px] font-bold lg:block">{product.name}</h1>
           <div className="mt-3 rounded-xl border border-gold/35 bg-[linear-gradient(135deg,#fffaf0,#f6ecdc)] p-4 lg:mt-4">
             <div className="flex items-start gap-2"><Info className="mt-0.5 size-4 shrink-0 text-gold-deep" /><div><h2 className="text-[14px] font-semibold">توضیحات</h2><p className="mt-1.5 text-[12.5px] leading-6 text-foreground/85">{product.summary}</p></div></div>
@@ -91,7 +91,7 @@ function ProductPage() {
           </ul>
         </aside>
 
-        <section className="order-4 lg:col-span-2 lg:col-start-2 lg:row-start-2" aria-labelledby="related-title">
+        <section className="order-4 min-w-0 lg:col-span-2 lg:col-start-2 lg:row-start-2" aria-labelledby="related-title">
           <h2 id="related-title" className="mb-4 flex items-center gap-2 text-[18px] font-bold lg:mb-5"><span className="h-6 w-1 rounded-full bg-gold" />محصولات مرتبط</h2>
           {related.length > 0 ? <ProductCarousel products={related} label="محصولات مرتبط" /> : <p className="text-sm text-muted-foreground">محصول مرتبطی وجود ندارد.</p>}
         </section>

@@ -42,7 +42,7 @@ export const serviceClaims = [
  * use "unavailable" to hide prices entirely. Tax base and rate must be confirmed by the business.
  */
 export const pricingConfig: PricingConfig = {
-  goldRatePerGram: 6_850_000,
+  goldRatePerGram: 23_000_000,
   referencePurity: 750,
   rateStatus: "demo",
   rateLabel: "نرخ نمایشی طلای ۱۸ عیار (غیر واقعی)",
